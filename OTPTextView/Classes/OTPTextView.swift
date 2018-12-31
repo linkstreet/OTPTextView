@@ -67,6 +67,14 @@ public class OTPTextView: UIView {
     @IBInspectable var onSuccessBoarderColor:UIColor = .gray
     
     
+    @IBInspectable var indicatorColor:UIColor = .red
+    {
+            didSet
+        {
+                refresh()
+        }
+    }
+    
     
     @IBInspectable var txtColor:UIColor = .orange
     
@@ -281,6 +289,9 @@ public class OTPTextView: UIView {
             
         }
         
+        UnderLineHighlight.backgroundColor = indicatorColor
+        underLineIndicator.backgroundColor = indicatorColor
+
         firstTxt = TextFiledContainer[0] // it keeps the first Textfield
         underLineIndicator.center = CGPoint(x: firstTxt.center.x, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
         
@@ -366,11 +377,10 @@ public class OTPTextView: UIView {
         }
         
         underLineIndicator = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 2))
-        underLineIndicator.backgroundColor = .red
         addSubview(underLineIndicator)
         
         UnderLineHighlight = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 2))
-        UnderLineHighlight.backgroundColor = .blue
+
         addSubview(UnderLineHighlight)
         UnderLineHighlight.layer.anchorPoint = CGPoint(x: 0, y: 0.5)
         UnderLineHighlight.alpha = 0.5
