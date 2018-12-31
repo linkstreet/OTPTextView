@@ -48,6 +48,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         
         
         OTPTextVU.borderColor = .blue
+        
         OTPTextVU.onErrorBorderColor = .red
         
         OTPTextVU.onEnterBoarderColor = .orange
@@ -57,6 +58,66 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         OTPTextVU.onFilledBorderColor = .blue
         
         OTPTextVU.onSuccessBoarderColor = .green
+        
+        
+         OTPTextVU.IndicatorGapeFromTop = 4
+        
+        
+         OTPTextVU.isBorderHidden = false
+        
+        
+         OTPTextVU.isPasswordProtected = false
+        
+        
+        
+        
+         OTPTextVU.forceCompletion = false
+        
+        
+         OTPTextVU.callOnCompleted = false
+        
+        
+         OTPTextVU.AutoArrange = true
+        
+        
+         OTPTextVU.isBorderHidden = false
+        
+        
+         OTPTextVU.onEnterBorderWidth = 2
+        
+        
+         OTPTextVU.onLeaveBorderWidth = 1
+        
+        
+         OTPTextVU.borderSize = 1
+        
+        
+         OTPTextVU.BorderRadius = 10
+        
+        
+         OTPTextVU.isFirstResponser = false
+        
+      
+        
+         OTPTextVU.BlockSize = CGSize(width: 35, height: 50)
+        
+        
+         OTPTextVU.BlocksNo = 6
+        
+        
+         OTPTextVU.gape = 10
+        
+        
+         OTPTextVU.showCursor = false
+        
+        
+         OTPTextVU.fontSize = 18
+        
+        
+         OTPTextVU.placeHolder = "#"
+        
+        
+        
         
         
         
