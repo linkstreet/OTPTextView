@@ -212,6 +212,36 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="txtColor">
                                         <color key="value" red="1" green="0.44790342170000003" blue="0.073773834750000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onErrorBorderColor">
+                                        <color key="value" red="1" green="0.44790342170000003" blue="0.073773834750000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onEnterBoarderColor">
+                                        <color key="value" red="0.90245603839999999" green="0.02354312028" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onLeaveBoarderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onFilledBorderColor">
+                                        <color key="value" red="0.124653608" green="0.23983019380000001" blue="0.42027455330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showCursor" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="onEnterBorderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="onLeaveBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isBorderHidden" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="#"/>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="BlockSize">
+                                        <size key="value" width="30" height="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="BlocksNo">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>

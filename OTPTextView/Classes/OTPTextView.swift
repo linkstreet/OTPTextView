@@ -59,15 +59,15 @@ public class OTPTextView: UIView {
     
     // All boarders' Attributes
     
-    @IBInspectable var onErrorBorderColor:UIColor    = .gray
-    @IBInspectable var borderColor:UIColor           = .gray
-    @IBInspectable var onEnterBoarderColor:UIColor   = .gray
-    @IBInspectable var onLeaveBoarderColor:UIColor   = .gray
-    @IBInspectable var onFilledBorderColor:UIColor   = .gray
-    @IBInspectable var onSuccessBoarderColor:UIColor = .gray
+    @IBInspectable public var onErrorBorderColor:UIColor    = .gray
+    @IBInspectable public var borderColor:UIColor           = .gray
+    @IBInspectable public var onEnterBoarderColor:UIColor   = .gray
+    @IBInspectable public var onLeaveBoarderColor:UIColor   = .gray
+    @IBInspectable public var onFilledBorderColor:UIColor   = .gray
+    @IBInspectable public var onSuccessBoarderColor:UIColor = .gray
     
     
-    @IBInspectable var indicatorColor:UIColor = .red
+    @IBInspectable public var indicatorColor:UIColor = .red
     {
             didSet
         {
@@ -76,10 +76,10 @@ public class OTPTextView: UIView {
     }
     
     
-    @IBInspectable var txtColor:UIColor = .orange
+    @IBInspectable public var txtColor:UIColor = .orange
     
     
-    @IBInspectable var IndicatorGapeFromTop:CGFloat = 4
+    @IBInspectable public var IndicatorGapeFromTop:CGFloat = 4
         {
         didSet
         {
@@ -87,7 +87,7 @@ public class OTPTextView: UIView {
         }
     }
     
-    @IBInspectable var middleGape:CGFloat = 50
+    @IBInspectable public var middleGape:CGFloat = 50
         {
         didSet
         {
@@ -115,14 +115,14 @@ public class OTPTextView: UIView {
         }
     }
     
-    @IBInspectable var onEnterBorderWidth:CGFloat = 2
+    @IBInspectable public var onEnterBorderWidth:CGFloat = 2
         {
         didSet
         {
             refresh()
         }
     }
-    @IBInspectable var onLeaveBorderWidth:CGFloat = 1
+    @IBInspectable public var onLeaveBorderWidth:CGFloat = 1
         {
         didSet
         {
@@ -131,21 +131,21 @@ public class OTPTextView: UIView {
     }
     
     
-    @IBInspectable var borderSize:CGFloat = 1
+    @IBInspectable public var borderSize:CGFloat = 1
         {
         didSet
         {
             refresh()
         }
     }
-    @IBInspectable var BorderRadius:CGFloat = 10
+    @IBInspectable public var BorderRadius:CGFloat = 10
         {
         didSet
         {
             refresh()
         }
     }
-    @IBInspectable var isFirstResponser:Bool = false
+    @IBInspectable public var isFirstResponser:Bool = false
         {
         didSet
         {
@@ -154,7 +154,7 @@ public class OTPTextView: UIView {
         }
         
     }
-    @IBInspectable var BlockSize:CGSize = CGSize(width: 40, height: 40)
+    @IBInspectable public var BlockSize:CGSize = CGSize(width: 40, height: 40)
         {
         didSet
         {
@@ -197,7 +197,7 @@ public class OTPTextView: UIView {
     }
     
     
-    @IBInspectable var fontSize:CGFloat = 30
+    @IBInspectable public var fontSize:CGFloat = 30
         {
         didSet
         {
@@ -205,7 +205,7 @@ public class OTPTextView: UIView {
         }
     }
     
-    @IBInspectable var placeHolder:String = "#"
+    @IBInspectable public var placeHolder:String = "#"
         {
         didSet
         {

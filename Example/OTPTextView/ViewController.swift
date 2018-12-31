@@ -47,6 +47,20 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         showNumberButton.StyleTheButton()
         
         
+        OTPTextVU.borderColor = .blue
+        OTPTextVU.onErrorBorderColor = .red
+        
+        OTPTextVU.onEnterBoarderColor = .orange
+        
+        OTPTextVU.onLeaveBoarderColor =  .blue
+        
+        OTPTextVU.onFilledBorderColor = .blue
+        
+        OTPTextVU.onSuccessBoarderColor = .green
+        
+        
+        
+        
         /*
 
          let myOTPTextView = OTPTextView(frame:CGRect(x: 10, y: 400, width: 300, height: 50))
