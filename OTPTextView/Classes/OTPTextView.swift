@@ -462,7 +462,7 @@ public class OTPTextView: UIView {
     }
     
     
-    
+ 
     @objc  func textFieldShouldBeginEditing(_ textField: EOTextfield) {
         
         
@@ -593,11 +593,12 @@ public class OTPTextView: UIView {
             if !isBorderHidden
             {
                 txt.layer.borderColor = onSuccessBoarderColor.cgColor
+                txt.layer.borderWidth = 0
             }
         }
     }
     
-  public  func flash(from:Int, to:Int,speed:Double)
+  public  func flash(from:Int, to:Int, speed:Double)
     {
         for i in from...to
         {
@@ -609,25 +610,11 @@ public class OTPTextView: UIView {
             }
         }
     }
-   public func flashEmpties(from:Int, to:Int,speed:Double)
-    {
-        for i in from...to
-        {
-            
-            
-            textfieldContainer[i].alpha = 0
-            UIView.animate(withDuration: speed) {
-                self.textfieldContainer[i].alpha = 1
-            }
-        }
-    }
-    
+
     public func flashAll(speed:Double)
     {
         for txt in textfieldContainer
         {
-            
-            
             txt.alpha = 0
             UIView.animate(withDuration: speed) {
                 txt.alpha = 1

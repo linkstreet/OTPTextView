@@ -21,6 +21,14 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         }
     }
     
+    @IBAction func showNumberButtonAction(_ sender: Any) {
+        
+        OTPTextVU.onSuccess()
+        let alert = UIAlertController(title: "Alert", message: OTPTextVU.getNumber(), preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var OTPTextVU: OTPTextView!
@@ -45,7 +53,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         OTPTextVU.layer.cornerRadius = 10
         OTPTextVU.delegate = self
         
-        OTPTextVU.indicatorStyle = .underline
+        OTPTextVU.indicatorStyle = .underlineProgress
         
         clearAllButton.StyleTheButton()
         showNumberButton.StyleTheButton()
