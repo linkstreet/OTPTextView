@@ -324,7 +324,7 @@ public class OTPTextView: UIView {
         
     }
     
-    public func MiddleGapeToggle(with Gape:CGFloat)
+    private func MiddleGapeToggle(with Gape:CGFloat)
     {
         if (BlocksNo  % 2 == 0)
         {
@@ -382,8 +382,8 @@ public class OTPTextView: UIView {
         UnderLineHighlight = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 2))
 
         addSubview(UnderLineHighlight)
+        
         UnderLineHighlight.layer.anchorPoint = CGPoint(x: 0, y: 0.5)
-        UnderLineHighlight.alpha = 0.5
         
         if isFirstResponser
         {

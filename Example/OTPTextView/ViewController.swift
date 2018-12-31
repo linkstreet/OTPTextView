@@ -146,10 +146,10 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         
         if sender.isOn
         {
-            OTPTextVU.MiddleGapeToggle(with: 10)
+            OTPTextVU.middleGape = 10
         } else
         {
-            OTPTextVU.MiddleGapeToggle(with: -10)
+            OTPTextVU.middleGape = -10
         }
         
         
