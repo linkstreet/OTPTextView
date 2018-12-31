@@ -181,6 +181,9 @@
                                 <state key="normal" title="clearAll">
                                     <color key="titleColor" red="0.1680625677" green="0.32372111079999999" blue="0.56447660919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="clearAllButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2yn-Fh-39P"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gG-4e-dHp">
                                 <rect key="frame" x="345" y="326" width="51" height="31"/>
@@ -242,6 +245,9 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="BlocksNo">
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="onAllFilledBoarderColor">
+                                        <color key="value" red="0.1353442133331634" green="0.51306710025380708" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -257,6 +263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-396" y="10"/>
         </scene>
     </scenes>
 </document>

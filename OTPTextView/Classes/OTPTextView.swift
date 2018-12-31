@@ -19,7 +19,7 @@ public class OTPTextView: UIView {
     public var delegate:OTPTextViewDelegate!
     
     // All textfield are generated and stored here
-    public  var TextFiledContainer = [UITextField]()
+    public  var textfieldContainer = [UITextField]()
     
     // Cursert Defailt tint-color
     public var cursorColor = UITextField.appearance().tintColor
@@ -59,13 +59,13 @@ public class OTPTextView: UIView {
     
     // All boarders' Attributes
     
-    @IBInspectable public var onErrorBorderColor:UIColor    = .gray
-    @IBInspectable public var borderColor:UIColor           = .gray
-    @IBInspectable public var onEnterBoarderColor:UIColor   = .gray
-    @IBInspectable public var onLeaveBoarderColor:UIColor   = .gray
-    @IBInspectable public var onFilledBorderColor:UIColor   = .gray
-    @IBInspectable public var onSuccessBoarderColor:UIColor = .gray
-    
+    @IBInspectable public var onErrorBorderColor:UIColor      = .red
+    @IBInspectable public var borderColor:UIColor             = .gray
+    @IBInspectable public var onEnterBoarderColor:UIColor     = .orange
+    @IBInspectable public var onLeaveBoarderColor:UIColor     = .gray
+    @IBInspectable public var onFilledBorderColor:UIColor     = .darkGray
+    @IBInspectable public var onSuccessBoarderColor:UIColor   = .blue
+    @IBInspectable public var onAllFilledBoarderColor:UIColor = .green
     
     @IBInspectable public var indicatorColor:UIColor = .red
     {
@@ -217,16 +217,16 @@ public class OTPTextView: UIView {
     func reCreate()
     {
         self.subviews.forEach { $0.removeFromSuperview() }
-        TextFiledContainer.removeAll()
+        textfieldContainer.removeAll()
         setup()
     }
     
     
    public func AutoFillByFrameSize()
     {
-        for i in 0...TextFiledContainer.count - 1
+        for i in 0...textfieldContainer.count - 1
         {
-            let txt = TextFiledContainer[i] as! EOTextfield
+            let txt = textfieldContainer[i] as! EOTextfield
             txt.frame = CGRect(x: (BlockSize.width * CGFloat(i)) + (CGFloat(i) * 100), y: 0, width: BlockSize.width, height: BlockSize.height)
             
         }
@@ -251,9 +251,9 @@ public class OTPTextView: UIView {
         let CG = (bounds.width - (CGFloat(BlocksNo) * BlockSize.width)) / CGFloat(BlocksNo)
         
         
-        for i in 0...TextFiledContainer.count - 1
+        for i in 0...textfieldContainer.count - 1
         {
-            let txt = TextFiledContainer[i] as! EOTextfield
+            let txt = textfieldContainer[i] as! EOTextfield
             if AutoArrange
             {
                 txt.frame = CGRect(x: ((BlockSize.width + CG) * CGFloat(i)) + (CG / 2), y: 0, width: BlockSize.width, height: BlockSize.height)
@@ -292,7 +292,7 @@ public class OTPTextView: UIView {
         UnderLineHighlight.backgroundColor = indicatorColor
         underLineIndicator.backgroundColor = indicatorColor
 
-        firstTxt = TextFiledContainer[0] // it keeps the first Textfield
+        firstTxt = textfieldContainer[0] // it keeps the first Textfield
         underLineIndicator.center = CGPoint(x: firstTxt.center.x, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
         
         UnderLineHighlight.center = CGPoint(x: 0 + firstTxt.frame.width / 2, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
@@ -331,9 +331,9 @@ public class OTPTextView: UIView {
             let midSide = BlocksNo / 2
             
             
-            for i in 0...TextFiledContainer.count - 1
+            for i in 0...textfieldContainer.count - 1
             {
-                let txt = TextFiledContainer[i] as! EOTextfield
+                let txt = textfieldContainer[i] as! EOTextfield
                 
                 if i < midSide
                 {
@@ -373,7 +373,7 @@ public class OTPTextView: UIView {
             
             txt.flag = i //
             
-            TextFiledContainer.append(txt)
+            textfieldContainer.append(txt)
         }
         
         underLineIndicator = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 2))
@@ -416,14 +416,14 @@ public class OTPTextView: UIView {
         if textField.text == "" && textField.flag > 0
         {
             
-            TextFiledContainer[textField.flag - 1].becomeFirstResponder()
-            TextFiledContainer[textField.flag].layer.borderColor = borderColor.cgColor
+            textfieldContainer[textField.flag - 1].becomeFirstResponder()
+            textfieldContainer[textField.flag].layer.borderColor = borderColor.cgColor
         }
         else
         {
-            if textField.text!.utf16.count == 1 && textField.flag < TextFiledContainer.count - 1
+            if textField.text!.utf16.count == 1 && textField.flag < textfieldContainer.count - 1
             {
-                TextFiledContainer[textField.flag + 1].becomeFirstResponder()
+                textfieldContainer[textField.flag + 1].becomeFirstResponder()
                 if Int(textField.text!) == nil{
                     
                     textField.text = " "
@@ -433,7 +433,7 @@ public class OTPTextView: UIView {
         
         var sum = 0
         
-        for tx in TextFiledContainer
+        for tx in textfieldContainer
         {
             
             if tx.text != "" && tx.text != " "
@@ -443,9 +443,20 @@ public class OTPTextView: UIView {
             
         }
         
-        if sum == BlocksNo && callOnCompleted
+        if sum == BlocksNo
         {
-            delegate?.OTPTextViewResult(number: getNumber())
+            for txt in textfieldContainer
+            {
+               
+                txt.layer.borderColor = onAllFilledBoarderColor.cgColor
+                
+            }
+            
+            if callOnCompleted
+            {
+              
+                delegate?.OTPTextViewResult(number: getNumber())
+            }
         }
         
     }
@@ -456,7 +467,7 @@ public class OTPTextView: UIView {
         
         
         
-        for tx in TextFiledContainer
+        for tx in textfieldContainer
         {
             if !isBorderHidden
             {
@@ -523,14 +534,14 @@ public class OTPTextView: UIView {
    public func getNumber() -> String?
     {
         var number = ""
-        for txt in TextFiledContainer
+        for txt in textfieldContainer
         {
             if (txt.text == "" || txt.text == " ") && forceCompletion
             {
                 txt.becomeFirstResponder()
                 txt.layer.borderColor = onErrorBorderColor.cgColor
                 
-                flash(from: TextFiledContainer.index(of:txt)!, to: TextFiledContainer.count - 1, speed: 1)
+                flash(from: textfieldContainer.index(of:txt)!, to: textfieldContainer.count - 1, speed: 1)
                 return nil
             }
             number += txt.text!
@@ -548,7 +559,7 @@ public class OTPTextView: UIView {
     
    public func clearAll()
     {
-        for txt in TextFiledContainer
+        for txt in textfieldContainer
         {
             txt.text = ""
             becomeResponserAt(at: 0)
@@ -557,9 +568,9 @@ public class OTPTextView: UIView {
     
     func becomeResponserAt(at index:Int)
     {
-        if index < TextFiledContainer.count && index >= 0
+        if index < textfieldContainer.count && index >= 0
         {
-            TextFiledContainer[index].becomeFirstResponder()
+            textfieldContainer[index].becomeFirstResponder()
         } else
         {
             print("out of range")
@@ -576,7 +587,7 @@ public class OTPTextView: UIView {
  public func onSuccess()
     {
         
-        for txt in TextFiledContainer
+        for txt in textfieldContainer
         {
             txt.resignFirstResponder()
             if !isBorderHidden
@@ -592,9 +603,9 @@ public class OTPTextView: UIView {
         {
             
             
-            TextFiledContainer[i].alpha = 0
+            textfieldContainer[i].alpha = 0
             UIView.animate(withDuration: speed) {
-                self.TextFiledContainer[i].alpha = 1
+                self.textfieldContainer[i].alpha = 1
             }
         }
     }
@@ -604,16 +615,16 @@ public class OTPTextView: UIView {
         {
             
             
-            TextFiledContainer[i].alpha = 0
+            textfieldContainer[i].alpha = 0
             UIView.animate(withDuration: speed) {
-                self.TextFiledContainer[i].alpha = 1
+                self.textfieldContainer[i].alpha = 1
             }
         }
     }
     
     public func flashAll(speed:Double)
     {
-        for txt in TextFiledContainer
+        for txt in textfieldContainer
         {
             
             

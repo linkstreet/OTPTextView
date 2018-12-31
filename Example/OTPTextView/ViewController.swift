@@ -35,6 +35,10 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     @IBAction func stepperTapped(_ sender: UIStepper) {
         OTPTextVU.BlocksNo = Int(sender.value)
     }
+    @IBAction func clearAllButtonAction(_ sender: Any) {
+        
+        OTPTextVU.clearAll()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,20 +51,20 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         showNumberButton.StyleTheButton()
         
         
-        OTPTextVU.borderColor = .blue
+        OTPTextVU.borderColor = .blue // Default border color
         
-        OTPTextVU.onErrorBorderColor = .red
+        OTPTextVU.onErrorBorderColor = .red // the color when one textfield is empty
         
-        OTPTextVU.onEnterBoarderColor = .orange
+        OTPTextVU.onEnterBoarderColor = .orange // the color when textfield gets the focus
         
-        OTPTextVU.onLeaveBoarderColor =  .blue
+        OTPTextVU.onLeaveBoarderColor =  .blue // the color when textfield loses the focus
         
-        OTPTextVU.onFilledBorderColor = .blue
+        OTPTextVU.onFilledBorderColor = .blue // the color when textfield is filled and loses the focus
         
-        OTPTextVU.onSuccessBoarderColor = .green
+        OTPTextVU.onSuccessBoarderColor = .blue // the color when codes is right
+        OTPTextVU.onAllFilledBoarderColor = .green
         
-        
-         OTPTextVU.IndicatorGapeFromTop = 4
+         OTPTextVU.IndicatorGapeFromTop = 4 //
         
         
          OTPTextVU.isBorderHidden = false
