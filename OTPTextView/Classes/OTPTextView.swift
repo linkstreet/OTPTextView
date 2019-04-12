@@ -2,7 +2,7 @@
 //  OTPTextView.swift
 //  OTPTextView
 //
-//  Created by Ehsanomid on 5/27/18.
+//  Created by Ehsanomid on 5/27/18..
 //  Copyright © 2018 Ehsan Omid. All rights reserved.
 // GitHub : https://github.com/ehsanomid  Email : imehsan@icloud.com
 
