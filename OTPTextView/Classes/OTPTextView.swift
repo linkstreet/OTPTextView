@@ -91,7 +91,7 @@ public class OTPTextView: UIView {
         {
         didSet
         {
-            MiddleGapeToggle(with: middleGape)
+            MiddleGapeToggle(with: 100)
             refresh()
             
         }
@@ -241,8 +241,7 @@ public class OTPTextView: UIView {
     
     func refresh()
     {
-        
-        
+           
         if bounds.width <  (CGFloat(BlocksNo) * BlockSize.width)
         {
             print("OTPTextView: ( You don't have ample space for showing all )")
@@ -295,7 +294,7 @@ public class OTPTextView: UIView {
         firstTxt = textfieldContainer[0] // it keeps the first Textfield
         underLineIndicator.center = CGPoint(x: firstTxt.center.x, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
         
-        UnderLineHighlight.center = CGPoint(x: 0 + firstTxt.frame.width / 2, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
+        UnderLineHighlight.center = CGPoint(x: firstTxt.center.x - firstTxt.frame.width / 2, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
         
         
         
@@ -326,26 +325,27 @@ public class OTPTextView: UIView {
     
     private func MiddleGapeToggle(with Gape:CGFloat)
     {
-        if (BlocksNo  % 2 == 0)
-        {
+        print(#function)
+        
             let midSide = BlocksNo / 2
-            
-            
+
             for i in 0...textfieldContainer.count - 1
             {
-                let txt = textfieldContainer[i] as! EOTextfield
-                
+                let txt = textfieldContainer[i]
+                print(textfieldContainer[i])
+
                 if i < midSide
                 {
-                    txt.center.x = txt.center.x - Gape
-                    
+                    txt.center = CGPoint(x: 10, y: 10)
+  
                 } else
                 {
-                    txt.center.x = txt.center.x + Gape
+                    txt.center = CGPoint(x: 10, y: 10)
                 }
                 
             }
-        }
+       
+        setNeedsDisplay()
     }
     
     func setup()
@@ -541,7 +541,7 @@ public class OTPTextView: UIView {
                 txt.becomeFirstResponder()
                 txt.layer.borderColor = onErrorBorderColor.cgColor
                 
-                flash(from: textfieldContainer.index(of:txt)!, to: textfieldContainer.count - 1, speed: 1)
+                flash(from: textfieldContainer.firstIndex(of:txt)!, to: textfieldContainer.count - 1, speed: 1)
                 return nil
             }
             number += txt.text!

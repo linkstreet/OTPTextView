@@ -9,14 +9,19 @@
 import UIKit
 import OTPTextView
 class ViewController: UIViewController,OTPTextViewDelegate {
+    @IBAction func GAPP(_ sender: Any) {
+        
+         OTPTextVU2.middleGape = 100
+      
+    }
     
     func OTPTextViewResult(number: String?) {
         
   
         if number != nil
         {
-            let alert = UIAlertController(title: "Alert", message: number, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            let alert = UIAlertController(title: "Alert", message: number, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -24,8 +29,8 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     @IBAction func showNumberButtonAction(_ sender: Any) {
         
         OTPTextVU.onSuccess()
-        let alert = UIAlertController(title: "Alert", message: OTPTextVU.getNumber(), preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Alert", message: OTPTextVU.getNumber(), preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
     }
@@ -35,6 +40,9 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     @IBOutlet weak var placeHolder: UITextField!
     @IBOutlet weak var clearAllButton: UIButton!
     @IBOutlet weak var showNumberButton: UIButton!
+    
+   var OTPTextVU2 =  OTPTextView()
+
     @IBAction func slider(_ sender: UISlider) {
         
         OTPTextVU.gape = CGFloat(sender.value)
@@ -49,6 +57,9 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        OTPTextVU2 = OTPTextView(frame: CGRect(x: 50, y: 10, width: 200, height: 60))
+        view.addSubview(OTPTextVU2)
         
         OTPTextVU.layer.cornerRadius = 10
         OTPTextVU.delegate = self
@@ -114,7 +125,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
          OTPTextVU.BlockSize = CGSize(width: 35, height: 50)
         
         
-         OTPTextVU.BlocksNo = 6
+         OTPTextVU.BlocksNo = 12
         
         
          OTPTextVU.gape = 10
@@ -155,14 +166,8 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         
     }
     @IBAction func middleGape(_ sender: UISwitch) {
+        print(#function)
         
-        if sender.isOn
-        {
-            OTPTextVU.middleGape = 10
-        } else
-        {
-            OTPTextVU.middleGape = -10
-        }
         
         
     }
