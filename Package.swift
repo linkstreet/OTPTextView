@@ -22,6 +22,6 @@ let package = Package(
             name: "OTPTextView",
             dependencies: [],
             path: "OTPTextView/Classes",
-            exclude: ["OTPTextView.podspec"]
+            exclude: ["OTPTextView.podspec","OTPTextView/Example"]
         )]
 )
