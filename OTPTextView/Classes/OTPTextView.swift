@@ -57,13 +57,14 @@ public class OTPTextView: UIView {
     
     // All boarders' Attributes
     
-    @IBInspectable public var onErrorBorderColor:UIColor      = .red
-    @IBInspectable public var borderColor:UIColor             = .gray
-    @IBInspectable public var onEnterBoarderColor:UIColor     = .orange
-    @IBInspectable public var onLeaveBoarderColor:UIColor     = .gray
-    @IBInspectable public var onFilledBorderColor:UIColor     = .darkGray
-    @IBInspectable public var onSuccessBoarderColor:UIColor   = .blue
-    @IBInspectable public var onAllFilledBoarderColor:UIColor = .green
+    @IBInspectable public var onErrorBorderColor:UIColor        = .red
+    @IBInspectable public var borderColor:UIColor               = .gray
+    @IBInspectable public var onEnterBoarderColor:UIColor       = .orange
+    @IBInspectable public var onLeaveBoarderColor:UIColor       = .gray
+    @IBInspectable public var onFilledBorderColor:UIColor       = .darkGray
+    @IBInspectable public var onSuccessBoarderColor:UIColor     = .blue
+    @IBInspectable public var onAllFilledBoarderColor:UIColor   = .green
+    @IBInspectable public var placeHolderColor:UIColor          = .lightGray
     
     @IBInspectable public var indicatorColor:UIColor = .red
     {
@@ -104,6 +105,15 @@ public class OTPTextView: UIView {
             refresh()
         }
     }
+    
+    @IBInspectable public var shouldClipboardAndDigitsEqual:Bool = true
+         {
+         didSet
+         {
+             refresh()
+         }
+     }
+     
     
     
     @IBInspectable public var isBorderHidden:Bool = true
@@ -204,7 +214,7 @@ public class OTPTextView: UIView {
         }
     }
     
-    @IBInspectable public var placeHolder:String = "#"
+    @IBInspectable public var placeHolder:String = "⦿"
         {
         didSet
         {
@@ -235,6 +245,26 @@ public class OTPTextView: UIView {
     override open func layoutSubviews() {
         super.layoutSubviews()
         refresh()
+    }
+    
+    
+    open func getFromClipBoardAndFill() -> Bool
+    {
+        let pasteboardString: String? = UIPasteboard.general.string
+        if let otpStr = pasteboardString {
+            
+            if (otpStr.count == BlocksNo) && shouldClipboardAndDigitsEqual
+            {
+                for (index,st) in otpStr.enumerated()
+                {
+                    textfieldContainer[index].text = String(st)
+                }
+                
+                return true
+            }
+        }
+        
+        return false
     }
     
     
@@ -276,14 +306,14 @@ public class OTPTextView: UIView {
             }
             
             
-            txt.placeholder = placeHolder
             txt.tintColor = cursorColor
             txt.keyboardType = .numberPad
             txt.textAlignment = .center
             txt.font = UIFont.boldSystemFont(ofSize: fontSize)
             txt.textColor = txtColor
             txt.isSecureTextEntry = isPasswordProtected
-            
+            txt.attributedPlaceholder = NSAttributedString(string: placeHolder,
+            attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
             
         }
         
@@ -363,13 +393,17 @@ public class OTPTextView: UIView {
             txt.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
             
             
+            
             // Initial Properties
-            txt.placeholder = placeHolder
             txt.tintColor = cursorColor
             txt.keyboardType = .numberPad
             txt.textAlignment = .center
             txt.font = UIFont.boldSystemFont(ofSize: 30)
             txt.textColor = txtColor
+            txt.isSecureTextEntry = isPasswordProtected
+            txt.attributedPlaceholder = NSAttributedString(string: placeHolder,
+                      attributes: [NSAttributedString.Key.foregroundColor: placeHolderColor])
+
             
             txt.flag = i //
             
@@ -379,7 +413,7 @@ public class OTPTextView: UIView {
         underLineIndicator = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 2))
         addSubview(underLineIndicator)
         
-        UnderLineHighlight = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 2))
+        UnderLineHighlight = UIView(frame: CGRect(x: 0, y: 0, width: firstTxt.frame.width - 10, height: 2))
 
         addSubview(UnderLineHighlight)
         
@@ -499,8 +533,7 @@ public class OTPTextView: UIView {
                 
             case .underlineProgress:
                 self.underLineIndicator.isHidden = true
-                self.UnderLineHighlight.frame.size = CGSize(width: (self.firstTxt.center.x + textField.center.x) - textField.frame.width, height: 2)
-                
+                self.UnderLineHighlight.frame.size = CGSize(width: (self.firstTxt.center.x + textField.center.x), height: 2)
             }
             
             
