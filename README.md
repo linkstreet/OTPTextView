@@ -18,11 +18,15 @@ Open Wiki tap to see, you can use storyboard or implement it in your code
 
 `let myOTPTextView = OTPTextView(frame:CGRect(x: 10, y: 400, width: 300, height: 50)) view.addSubview(myOTPTextView) print(myOTPTextView.getNumber())`
 
-## Requirements
-
-UIKit
 
 ## Installation
+
+SWIFT PACKAGE MANAGER
+Easy Installation ( Xcode 11 )
+
+```ruby
+https://github.com/ehsanomid/OTPTextView.git
+```
 
 OTPTextView is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
