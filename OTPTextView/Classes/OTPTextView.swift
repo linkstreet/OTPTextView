@@ -45,8 +45,7 @@ public class OTPTextView: UIView {
         case underlineProgress
         
     }
-    
-    
+ 
     public var indicatorStyle = indicatorStyleMode.none
     {
         didSet
@@ -54,8 +53,7 @@ public class OTPTextView: UIView {
             refresh()
         }
     }
-    
-    
+
     
     // All boarders' Attributes
     
@@ -91,8 +89,9 @@ public class OTPTextView: UIView {
         {
         didSet
         {
-            MiddleGapeToggle(with: 100)
             refresh()
+            MiddleGapeToggle(with: middleGape)
+
             
         }
     }
@@ -325,8 +324,9 @@ public class OTPTextView: UIView {
     
     private func MiddleGapeToggle(with Gape:CGFloat)
     {
-        print(#function)
         
+        if ( BlocksNo % 2 == 0)
+        {
             let midSide = BlocksNo / 2
 
             for i in 0...textfieldContainer.count - 1
@@ -336,16 +336,16 @@ public class OTPTextView: UIView {
 
                 if i < midSide
                 {
-                    txt.center = CGPoint(x: 10, y: 10)
+                    txt.center.x -= Gape
   
                 } else
                 {
-                    txt.center = CGPoint(x: 10, y: 10)
+                    txt.center.x += Gape
                 }
                 
             }
        
-        setNeedsDisplay()
+        }
     }
     
     func setup()

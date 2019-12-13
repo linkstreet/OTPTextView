@@ -10,9 +10,7 @@ import UIKit
 import OTPTextView
 class ViewController: UIViewController,OTPTextViewDelegate {
     @IBAction func GAPP(_ sender: Any) {
-        
-         OTPTextVU2.middleGape = 100
-      
+ 
     }
     
     func OTPTextViewResult(number: String?) {
@@ -58,92 +56,91 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        OTPTextVU2 = OTPTextView(frame: CGRect(x: 50, y: 10, width: 200, height: 60))
-        view.addSubview(OTPTextVU2)
+        
         
         OTPTextVU.layer.cornerRadius = 10
         OTPTextVU.delegate = self
-        
-        OTPTextVU.indicatorStyle = .underlineProgress
-        
-        clearAllButton.StyleTheButton()
-        showNumberButton.StyleTheButton()
-        
-        
-        OTPTextVU.borderColor = .blue // Default border color
-        
-        OTPTextVU.onErrorBorderColor = .red // the color when one textfield is empty
-        
-        OTPTextVU.onEnterBoarderColor = .orange // the color when textfield gets the focus
-        
-        OTPTextVU.onLeaveBoarderColor =  .blue // the color when textfield loses the focus
-        
-        OTPTextVU.onFilledBorderColor = .blue // the color when textfield is filled and loses the focus
-        
-        OTPTextVU.onSuccessBoarderColor = .blue // the color when codes is right
-        OTPTextVU.onAllFilledBoarderColor = .green
-        
-         OTPTextVU.IndicatorGapeFromTop = 4 //
-        
-        
-         OTPTextVU.isBorderHidden = false
-        
-        
-         OTPTextVU.isPasswordProtected = false
-        
-        
-        
-        
-         OTPTextVU.forceCompletion = false
-        
-        
-         OTPTextVU.callOnCompleted = false
-        
-        
-         OTPTextVU.AutoArrange = true
-        
-        
-         OTPTextVU.isBorderHidden = false
-        
-        
-         OTPTextVU.onEnterBorderWidth = 2
-        
-        
-         OTPTextVU.onLeaveBorderWidth = 1
-        
-        
-         OTPTextVU.borderSize = 1
-        
-        
-         OTPTextVU.BorderRadius = 10
-        
-        
-         OTPTextVU.isFirstResponser = false
-        
-      
-        
-         OTPTextVU.BlockSize = CGSize(width: 35, height: 50)
-        
-        
-         OTPTextVU.BlocksNo = 12
-        
-        
-         OTPTextVU.gape = 10
-        
-        
-         OTPTextVU.showCursor = false
-        
-        
-         OTPTextVU.fontSize = 18
-        
-        
-         OTPTextVU.placeHolder = "#"
-        
-        
-        
-        
-        
-        
+//        
+//        OTPTextVU.indicatorStyle = .underlineProgress
+//        
+//        clearAllButton.StyleTheButton()
+//        showNumberButton.StyleTheButton()
+//        
+//        
+//        OTPTextVU.borderColor = .blue // Default border color
+//        
+//        OTPTextVU.onErrorBorderColor = .red // the color when one textfield is empty
+//        
+//        OTPTextVU.onEnterBoarderColor = .orange // the color when textfield gets the focus
+//        
+//        OTPTextVU.onLeaveBoarderColor =  .blue // the color when textfield loses the focus
+//        
+//        OTPTextVU.onFilledBorderColor = .blue // the color when textfield is filled and loses the focus
+//        
+//        OTPTextVU.onSuccessBoarderColor = .blue // the color when codes is right
+//        OTPTextVU.onAllFilledBoarderColor = .green
+//        
+//         OTPTextVU.IndicatorGapeFromTop = 4 //
+//        
+//        
+//         OTPTextVU.isBorderHidden = false
+//        
+//        
+//         OTPTextVU.isPasswordProtected = false
+//        
+//        
+//        
+//        
+//         OTPTextVU.forceCompletion = false
+//        
+//        
+//         OTPTextVU.callOnCompleted = false
+//        
+//        
+//         OTPTextVU.AutoArrange = false
+//        
+//        
+//         OTPTextVU.isBorderHidden = false
+//        
+//        
+//         OTPTextVU.onEnterBorderWidth = 2
+//        
+//        
+//         OTPTextVU.onLeaveBorderWidth = 1
+//        
+//        
+//         OTPTextVU.borderSize = 1
+//        
+//        
+//         OTPTextVU.BorderRadius = 10
+//        
+//        
+//         OTPTextVU.isFirstResponser = false
+//        
+//      
+//        
+//         OTPTextVU.BlockSize = CGSize(width: 35, height: 50)
+//        
+//        
+//         OTPTextVU.BlocksNo = 12
+//        
+//        
+//         OTPTextVU.gape = 10
+//        
+//        
+//         OTPTextVU.showCursor = false
+//        
+//        
+//         OTPTextVU.fontSize = 18
+//        
+//        
+//         OTPTextVU.placeHolder = "#"
+//        
+//        
+//        
+//        
+//        
+//        
         
         /*
 
@@ -168,7 +165,13 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     @IBAction func middleGape(_ sender: UISwitch) {
         print(#function)
         
-        
+        if sender.isOn{
+              OTPTextVU.middleGape = 10
+        } else
+        {
+            OTPTextVU.middleGape = 0
+
+        }
         
     }
     @IBAction func AutomaticDone(_ sender: UISwitch) {
