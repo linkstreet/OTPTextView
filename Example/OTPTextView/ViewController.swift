@@ -16,6 +16,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         otp.showCursor = false // show the blinking curser in textfiels
         otp.BlockSize = CGSize(width: 40, height: 50)
         otp.isBorderHidden = false
+        otp.forceCompletion = false
         otp.translatesAutoresizingMaskIntoConstraints = false
         otp.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         otp.layer.cornerRadius = 15
@@ -108,6 +109,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         
         let switchh = UISwitch()
         switchh.translatesAutoresizingMaskIntoConstraints = false
+        switchh.isOn = true
         switchh.addTarget(self, action: #selector(AutoArrangeSwitchTapped), for: .valueChanged)
         
         return switchh
@@ -125,6 +127,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         
         let switchh = UISwitch()
         switchh.translatesAutoresizingMaskIntoConstraints = false
+        switchh.isOn = true
         switchh.addTarget(self, action: #selector(ShowBorderSwitchTapped), for: .valueChanged)
         
         return switchh
