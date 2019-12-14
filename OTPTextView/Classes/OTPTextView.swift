@@ -6,7 +6,6 @@
 //  Copyright © 2018 Ehsan Omid. All rights reserved.
 // GitHub : https://github.com/ehsanomid  Email : imehsan@icloud.com
 
-#if os(iOS)
 import UIKit
 
 public protocol OTPTextViewDelegate {
@@ -657,4 +656,4 @@ extension String
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
 }
-#endif
+
