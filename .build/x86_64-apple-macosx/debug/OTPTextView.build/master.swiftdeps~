@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+options: "6732f5acb0c5a69805800099d12dd7f9"
+build_time: [1576324859, 630615000]
+inputs:
+  "/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/OTPTextView/Classes/OTPTextView.swift": !dirty [1576320051, 470867669]

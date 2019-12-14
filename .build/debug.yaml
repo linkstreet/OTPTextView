@@ -1,0 +1,30 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "main": ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.swiftmodule","<OTPTextView-debug.module>"]
+  "test": ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.swiftmodule","<OTPTextView-debug.module>"]
+  "OTPTextView-debug.module": ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.swiftmodule","<OTPTextView-debug.module>"]
+default: "main"
+commands: 
+  "<C.OTPTextView-debug.module>":
+    tool: phony
+    inputs: ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.swiftmodule"]
+    outputs: ["<OTPTextView-debug.module>"]
+
+  "C.OTPTextView-debug.module":
+    tool: swift-compiler
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "OTPTextView"
+    module-output-path: "/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.swiftmodule"
+    inputs: ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/OTPTextView/Classes/OTPTextView.swift"]
+    outputs: ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.build/OTPTextView.swift.o","/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.swiftmodule"]
+    import-paths: ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.build"
+    objects: ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/OTPTextView.build/OTPTextView.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx10.10","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/index/store","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Onone","-g","-enable-testing","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-color-diagnostics"]
+    sources: ["/Users/ehsan/Desktop/SWIFT - PROJECTS - LAB/OTP/OTPTextView/OTPTextView/Classes/OTPTextView.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "8"
+
