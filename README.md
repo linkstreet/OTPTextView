@@ -8,9 +8,6 @@
 OTPTextView lets your to manage OTP code very conveniently
 
 ## DEMO
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 <p align="center">
     <img src ="https://user-images.githubusercontent.com/35446003/70846345-acf18780-1e6d-11ea-928d-13992a59d968.gif" />
 </p>
