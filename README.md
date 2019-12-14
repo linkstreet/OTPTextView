@@ -9,7 +9,8 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![otp](https://user-images.githubusercontent.com/35446003/50471695-211bec80-09cb-11e9-8c10-5927bb293617.gif)
+![demo](https://user-images.githubusercontent.com/35446003/70846345-acf18780-1e6d-11ea-928d-13992a59d968.gif)
+
 
 ## Implementation
 Open Wiki tap to see, you can use storyboard or implement it in your code
