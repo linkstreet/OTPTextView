@@ -5,7 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/OTPTextView.svg?style=flat)](https://cocoapods.org/pods/OTPTextView)
 [![Platform](https://img.shields.io/cocoapods/p/OTPTextView.svg?style=flat)](https://cocoapods.org/pods/OTPTextView)
 
-## Example
+OTPTextView lets your to manage OTP code very conveniently
+
+## DEMO
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
