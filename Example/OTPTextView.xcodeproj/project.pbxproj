@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		7C22336123A4CC9E008AA26B /* initViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22336023A4CC9E008AA26B /* initViewController.swift */; };
 		CC225A97EDA77FB2FFA7EADD /* Pods_OTPTextView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D588183837746BFB9A79A2AD /* Pods_OTPTextView_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6FB728513E50E0734D604A7C /* Pods-OTPTextView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTPTextView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-OTPTextView_Example/Pods-OTPTextView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7C22336023A4CC9E008AA26B /* initViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initViewController.swift; sourceTree = "<group>"; };
 		86AF3DC11DDFF65F6DBB8CC0 /* Pods-OTPTextView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTPTextView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OTPTextView_Tests/Pods-OTPTextView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D2518A3BFF93F22AAC67A821 /* OTPTextView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = OTPTextView.podspec; path = ../OTPTextView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D588183837746BFB9A79A2AD /* Pods_OTPTextView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTPTextView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
+				7C22336023A4CC9E008AA26B /* initViewController.swift */,
 			);
 			name = "Example for OTPTextView";
 			path = OTPTextView;
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				7C22336123A4CC9E008AA26B /* initViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

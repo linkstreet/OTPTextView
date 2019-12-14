@@ -2,24 +2,19 @@
 //  ViewController.swift
 //  OTPTextView
 //
-//  Created by ehsanomid on 12/29/2018.
-//  Copyright (c) 2018 ehsanomid. All rights reserved.
+//  Created by Ehsan Omid on 12/29/2018.
+//  Copyright (c) 2018 Ehsan Omid. All rights reserved.
 // // GitHub : https://github.com/ehsanomid  Email : imehsan@icloud.com
 
 import UIKit
 import OTPTextView
 class ViewController: UIViewController,OTPTextViewDelegate {
     
-    
-    
-    
-    
     let OTPTextVU : OTPTextView = {
         let otp = OTPTextView()
-        otp.BlocksNo = 8 // number of digits
+        otp.BlocksNo = 6 // number of digits
         otp.showCursor = false // show the blinking curser in textfiels
         otp.BlockSize = CGSize(width: 40, height: 50)
-        
         
         otp.translatesAutoresizingMaskIntoConstraints = false
         otp.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
@@ -135,6 +130,24 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         return switchh
     }()
     
+    
+    let passwordProtectedLabel : UILabel = {
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Password Protected"
+        return label
+    }()
+    
+    let passwordProtectedSwitch : UISwitch = {
+        
+        let switchh = UISwitch()
+        switchh.translatesAutoresizingMaskIntoConstraints = false
+        switchh.addTarget(self, action: #selector(passwordProtectedSwitchTapped), for: .valueChanged)
+        
+        return switchh
+    }()
+    
     let ShowIndicatorLabel : UILabel = {
         
         let label = UILabel()
@@ -165,6 +178,9 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     let  NumberOfDigitsStepper : UIStepper = {
         
         let Stepper = UIStepper()
+        Stepper.minimumValue = 1
+        Stepper.maximumValue = 10
+        Stepper.value = 6
         Stepper.translatesAutoresizingMaskIntoConstraints = false
         Stepper.addTarget(self, action: #selector(NumberOfDigitsStepperTapped), for: .valueChanged)
         
@@ -294,8 +310,14 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     
     @objc func getFromClipboardTapped()
     {
+        
         OTPTextVU.getFromClipBoardAndFill()
         
+    }
+    
+    @objc func passwordProtectedSwitchTapped(sender:UISwitch)
+    {
+        OTPTextVU.isPasswordProtected = sender.isOn
     }
     
     @objc func ShowNumberButtonTapped(sender:UIButton)
@@ -378,13 +400,23 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         ShowBorderSwitch.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20).isActive = true
         ShowBorderSwitch.topAnchor.constraint(equalTo: AutoArrangeSwitch.bottomAnchor, constant: 15).isActive = true
         
+        
+        view.addSubview(passwordProtectedLabel)
+        passwordProtectedLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20).isActive = true
+        passwordProtectedLabel.topAnchor.constraint(equalTo: ShowBorderSwitch.bottomAnchor, constant: 20).isActive = true
+        
+        view.addSubview(passwordProtectedSwitch)
+        passwordProtectedSwitch.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20).isActive = true
+        passwordProtectedSwitch.topAnchor.constraint(equalTo: ShowBorderSwitch.bottomAnchor, constant: 15).isActive = true
+        
+        
         view.addSubview(ShowIndicatorLabel)
         ShowIndicatorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20).isActive = true
-        ShowIndicatorLabel.topAnchor.constraint(equalTo: ShowBorderSwitch.bottomAnchor, constant: 20).isActive = true
+        ShowIndicatorLabel.topAnchor.constraint(equalTo: passwordProtectedSwitch.bottomAnchor, constant: 20).isActive = true
         
         view.addSubview(ShowIndicatorSeg)
         ShowIndicatorSeg.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20).isActive = true
-        ShowIndicatorSeg.topAnchor.constraint(equalTo: ShowBorderSwitch.bottomAnchor, constant: 15).isActive = true
+        ShowIndicatorSeg.topAnchor.constraint(equalTo: passwordProtectedSwitch.bottomAnchor, constant: 15).isActive = true
         
         
         view.addSubview(NumberOfDigitsLabel)
@@ -452,210 +484,16 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         view.backgroundColor = .white
         setupUI()
         OTPTextVU.delegate = self
-        
-        
-        
-        //
-        //        OTPTextVU.indicatorStyle = .underlineProgress
-        //
-        //        clearAllButton.StyleTheButton()
-        //        showNumberButton.StyleTheButton()
-        //
-        //
-        //        OTPTextVU.borderColor = .blue // Default border color
-        //
-        //        OTPTextVU.onErrorBorderColor = .red // the color when one textfield is empty
-        //
-        //        OTPTextVU.onEnterBoarderColor = .orange // the color when textfield gets the focus
-        //
-        //        OTPTextVU.onLeaveBoarderColor =  .blue // the color when textfield loses the focus
-        //
-        //        OTPTextVU.onFilledBorderColor = .blue // the color when textfield is filled and loses the focus
-        //
-        //        OTPTextVU.onSuccessBoarderColor = .blue // the color when codes is right
-        //        OTPTextVU.onAllFilledBoarderColor = .green
-        //
-        //         OTPTextVU.IndicatorGapeFromTop = 4 //
-        //
-        //
-        //         OTPTextVU.isBorderHidden = false
-        //
-        //
-        //         OTPTextVU.isPasswordProtected = false
-        //
-        //
-        //
-        //
-        //         OTPTextVU.forceCompletion = false
-        //
-        //
-        //         OTPTextVU.callOnCompleted = false
-        //
-        //
-        //         OTPTextVU.AutoArrange = false
-        //
-        //
-        //         OTPTextVU.isBorderHidden = false
-        //
-        //
-        //         OTPTextVU.onEnterBorderWidth = 2
-        //
-        //
-        //         OTPTextVU.onLeaveBorderWidth = 1
-        //
-        //
-        //         OTPTextVU.borderSize = 1
-        //
-        //
-        //         OTPTextVU.BorderRadius = 10
-        //
-        //
-        //         OTPTextVU.isFirstResponser = false
-        //
-        //
-        //
-        //         OTPTextVU.BlockSize = CGSize(width: 35, height: 50)
-        //
-        //
-        //         OTPTextVU.BlocksNo = 12
-        //
-        //
-        //         OTPTextVU.gape = 10
-        //
-        //
-        //         OTPTextVU.showCursor = false
-        //
-        //
-        //         OTPTextVU.fontSize = 18
-        //
-        //
-        //         OTPTextVU.placeHolder = "#"
-        //
-        //
-        //
-        //
-        //
-        //
-        
-        /*
-         
-         let myOTPTextView = OTPTextView(frame:CGRect(x: 10, y: 400, width: 300, height: 50))
-         view.addSubview(myOTPTextView)
-         print(myOTPTextView.getNumber())
-         
-         */
+        OTPTextVU.isFirstResponser = true
         
     }
-    
-    
-    //    func OTPTextViewResult(number: String?) {
-    //
-    //
-    //           if number != nil
-    //           {
-    //               let alert = UIAlertController(title: "Alert", message: number, preferredStyle: UIAlertController.Style.alert)
-    //               alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
-    //               self.present(alert, animated: true, completion: nil)
-    //           }
-    //       }
-    //
-    //       @IBAction func showNumberButtonAction(_ sender: Any) {
-    //
-    //           OTPTextVU.onSuccess()
-    //           let alert = UIAlertController(title: "Alert", message: OTPTextVU.getNumber(), preferredStyle: UIAlertController.Style.alert)
-    //           alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
-    //           self.present(alert, animated: true, completion: nil)
-    //
-    //       }
-    //
-    //       @IBOutlet weak var slider: UISlider!
-    //       @IBOutlet weak var OTPTextVU: OTPTextView!
-    //       @IBOutlet weak var placeHolder: UITextField!
-    //       @IBOutlet weak var clearAllButton: UIButton!
-    //       @IBOutlet weak var showNumberButton: UIButton!
-    //
-    //      var OTPTextVU2 =  OTPTextView()
-    //
-    //       @IBAction func slider(_ sender: UISlider) {
-    //
-    //           OTPTextVU.gape = CGFloat(sender.value)
-    //       }
-    //
-    //       @IBAction func stepperTapped(_ sender: UIStepper) {
-    //           OTPTextVU.BlocksNo = Int(sender.value)
-    //       }
-    //       @IBAction func clearAllButtonAction(_ sender: Any) {
-    //
-    //           OTPTextVU.clearAll()
-    //       }
-    //
-    //    @IBAction func showCursor(_ sender: UISwitch) {
-    //
-    //
-    //        OTPTextVU.showCursor = sender.isOn
-    //    }
-    //    @IBAction func forceToFill(_ sender: UISwitch) {
-    //
-    //        OTPTextVU.forceCompletion = sender.isOn
-    //
-    //    }
-    //    @IBAction func middleGape(_ sender: UISwitch) {
-    //        print(#function)
-    //
-    //        if sender.isOn{
-    //              OTPTextVU.middleGape = 10
-    //        } else
-    //        {
-    //            OTPTextVU.middleGape = 0
-    //
-    //        }
-    //
-    //    }
-    //    @IBAction func AutomaticDone(_ sender: UISwitch) {
-    //
-    //        OTPTextVU.callOnCompleted = sender.isOn
-    //
-    //    }
-    //
-    //    @IBAction func showBorder(_ sender: UISwitch) {
-    //
-    //        if !sender.isOn
-    //        {
-    //            OTPTextVU.isBorderHidden = true
-    //
-    //        } else
-    //        {
-    //            OTPTextVU.isBorderHidden = false
-    //
-    //        }
-    //
-    //
-    //    }
-    //    @IBAction func showIndicator(_ sender: UISwitch) {
-    //
-    //        if sender.isOn
-    //        {
-    //            OTPTextVU.underLineIndicator.isHidden = false
-    //
-    //        } else
-    //        {
-    //            OTPTextVU.underLineIndicator.isHidden = true
-    //
-    //        }
-    //    }
-    //    @IBAction func autoArrange(_ sender: UISwitch) {
-    //
-    //
-    //        OTPTextVU.AutoArrange = sender.isOn
-    //    }
-    //}
-    //
-    //extension UIView {
-    //    func StyleTheButton()
-    //    {
-    //        self.backgroundColor = .clear //UIColor(red:202.0/255.0, green:228.0/255.0, blue:230.0/255.0, alpha:1.0)
-    //        self.layer.cornerRadius = 8
-    //        self.layer.borderWidth = 1
-    //        self.layer.borderColor = UIColor(red:202.0/255.0, green:220.0/255.0, blue:230.0/255.0, alpha:1.0).cgColor
-    //    }
 }
+
+
+//         OTPTextVU.isPasswordProtected = false
+//
+//
+//         OTPTextVU.isFirstResponser = false
+//
+
+
