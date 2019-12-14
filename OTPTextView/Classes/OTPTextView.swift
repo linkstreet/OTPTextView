@@ -28,7 +28,7 @@ public class OTPTextView: UIView {
     
     // the moving line underneath of textfields
     public var underLineIndicator = UIView() // Small one
-    public var UnderLineHighlight = UIView() // Big one
+   
     
     public var isPasswordProtected : Bool = false
     {
@@ -42,7 +42,7 @@ public class OTPTextView: UIView {
     {
         case none
         case underline
-        case underlineProgress
+      
         
     }
  
@@ -317,13 +317,11 @@ public class OTPTextView: UIView {
             
         }
         
-        UnderLineHighlight.backgroundColor = indicatorColor
         underLineIndicator.backgroundColor = indicatorColor
 
         firstTxt = textfieldContainer[0] // it keeps the first Textfield
         underLineIndicator.center = CGPoint(x: firstTxt.center.x, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
         
-        UnderLineHighlight.center = CGPoint(x: firstTxt.center.x - firstTxt.frame.width / 2, y: firstTxt.center.y + firstTxt.frame.height / 2 + IndicatorGapeFromTop )
         
         
         
@@ -332,17 +330,11 @@ public class OTPTextView: UIView {
             
         case .none:
             
-            self.UnderLineHighlight.isHidden = true
             self.underLineIndicator.isHidden = true
             
         case .underline:
             self.underLineIndicator.isHidden = false
-            self.UnderLineHighlight.isHidden = true
-            
-        case .underlineProgress:
-            self.UnderLineHighlight.isHidden = false
-            self.underLineIndicator.isHidden = true
-            
+     
         }
         
         if isFirstResponser
@@ -413,11 +405,7 @@ public class OTPTextView: UIView {
         underLineIndicator = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 2))
         addSubview(underLineIndicator)
         
-        UnderLineHighlight = UIView(frame: CGRect(x: 0, y: 0, width: firstTxt.frame.width - 10, height: 2))
-
-        addSubview(UnderLineHighlight)
-        
-        UnderLineHighlight.layer.anchorPoint = CGPoint(x: 0, y: 0.5)
+       
         
         if isFirstResponser
         {
@@ -528,12 +516,9 @@ public class OTPTextView: UIView {
                 break
                 
             case .underline:
-                self.UnderLineHighlight.isHidden = true
                 self.underLineIndicator.center = CGPoint(x: textField.center.x , y: self.underLineIndicator.center.y)
                 
-            case .underlineProgress:
-                self.underLineIndicator.isHidden = true
-                self.UnderLineHighlight.frame.size = CGSize(width: (self.firstTxt.center.x + textField.center.x), height: 2)
+            
             }
             
             

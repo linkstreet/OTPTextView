@@ -19,8 +19,7 @@ class initViewController: UIViewController {
         btn.layer.cornerRadius = 15
         btn.addTarget(self, action: #selector(showButtonTapped), for: .touchUpInside)
         return btn
-        
-        
+
     }()
     
     
@@ -48,7 +47,6 @@ class initViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        
         view.addSubview(showButton)
         showButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         showButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -61,18 +59,6 @@ class initViewController: UIViewController {
         otpCode.widthAnchor.constraint(equalToConstant: 300).isActive = true
         otpCode.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        // Do any additional setup after loading the view.
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

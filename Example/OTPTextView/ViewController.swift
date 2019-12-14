@@ -15,7 +15,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         otp.BlocksNo = 6 // number of digits
         otp.showCursor = false // show the blinking curser in textfiels
         otp.BlockSize = CGSize(width: 40, height: 50)
-        
+        otp.isBorderHidden = false
         otp.translatesAutoresizingMaskIntoConstraints = false
         otp.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
         otp.layer.cornerRadius = 15
@@ -158,7 +158,7 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     
     let ShowIndicatorSeg : UISegmentedControl = {
         
-        let seg = UISegmentedControl(items: ["Underline", "Progress"])
+        let seg = UISegmentedControl(items: ["None","Underline"])
         seg.selectedSegmentIndex = 0
         seg.translatesAutoresizingMaskIntoConstraints = false
         seg.addTarget(self, action: #selector(ShowIndicatorSegTapped), for: .valueChanged)
@@ -280,9 +280,10 @@ class ViewController: UIViewController,OTPTextViewDelegate {
     {
         switch sender.selectedSegmentIndex {
         case 0:
-            OTPTextVU.indicatorStyle = .underline
+            OTPTextVU.indicatorStyle = .none
         case 1:
-            OTPTextVU.indicatorStyle = .underlineProgress
+            OTPTextVU.indicatorStyle = .underline
+    
         default:
             break
         }
@@ -341,7 +342,6 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         OTPTextVU.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         OTPTextVU.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9).isActive = true
         OTPTextVU.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        
         
         
         view.addSubview(showCurserlabel)
@@ -444,21 +444,21 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         view.addSubview(ResetButton)
         ResetButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         ResetButton.topAnchor.constraint(equalTo: gapeSlider.bottomAnchor,constant: 20).isActive = true
-        ResetButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        ResetButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         ResetButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         
         view.addSubview(ShowNumberButton)
         ShowNumberButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
         ShowNumberButton.topAnchor.constraint(equalTo: gapeSlider.bottomAnchor,constant: 20).isActive = true
-        ShowNumberButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        ShowNumberButton.widthAnchor.constraint(equalToConstant: 90).isActive = true
         ShowNumberButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         
         view.addSubview(getFromClipboard)
         getFromClipboard.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         getFromClipboard.topAnchor.constraint(equalTo: ShowNumberButton.bottomAnchor,constant: 20).isActive = true
-        getFromClipboard.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        getFromClipboard.widthAnchor.constraint(equalToConstant: 90).isActive = true
         getFromClipboard.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
@@ -488,12 +488,4 @@ class ViewController: UIViewController,OTPTextViewDelegate {
         
     }
 }
-
-
-//         OTPTextVU.isPasswordProtected = false
-//
-//
-//         OTPTextVU.isFirstResponser = false
-//
-
 
