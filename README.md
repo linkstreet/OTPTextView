@@ -58,15 +58,12 @@ print(myOTPTextView.getNumber())`
 
 ## Installation
 
-SWIFT PACKAGE MANAGER
-Easy Installation ( Xcode 11 )
+** SWIFT PACKAGE MANAGER :: Easy Installation ( Xcode 11 )
 
 ```ruby
 https://github.com/ehsanomid/OTPTextView.git
 ```
-
-OTPTextView is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+** POD
 
 ```ruby
 pod 'OTPTextView'
