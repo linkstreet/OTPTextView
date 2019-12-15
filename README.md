@@ -60,7 +60,7 @@ print(myOTPTextView.getNumber())
 ## Installation
 
 ### SWIFT PACKAGE MANAGER :: Easy Installation ( Xcode 11 )
-XCode 11 > File > Swift Packages > Add Package Dependency , Page the below link there and use it.
+XCode 11 > File > Swift Packages > Add Package Dependency , copy and paste the link there and use it.
 ```ruby
 https://github.com/ehsanomid/OTPTextView.git
 ```
