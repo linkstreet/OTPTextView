@@ -54,7 +54,7 @@ flashAll
 ```ruby
 let myOTPTextView = OTPTextView(frame:CGRect(x: 10, y: 400, width: 300, height: 50)) 
 view.addSubview(myOTPTextView)
-print(myOTPTextView.getNumber())`
+print(myOTPTextView.getNumber())
 ```
 
 ## Installation
