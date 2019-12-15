@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/OTPTextView.svg?style=flat)](https://cocoapods.org/pods/OTPTextView)
 [![Platform](https://img.shields.io/cocoapods/p/OTPTextView.svg?style=flat)](https://cocoapods.org/pods/OTPTextView)
 
-OTPTextView lets your to manage OTP code very conveniently
+OTPTextView lets you manage OTP code very conveniently
 
 ## DEMO
 <p align="center">
