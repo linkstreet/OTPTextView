@@ -58,12 +58,12 @@ print(myOTPTextView.getNumber())`
 
 ## Installation
 
-** SWIFT PACKAGE MANAGER :: Easy Installation ( Xcode 11 )
+## SWIFT PACKAGE MANAGER :: Easy Installation ( Xcode 11 )
 
 ```ruby
 https://github.com/ehsanomid/OTPTextView.git
 ```
-** POD
+## POD
 
 ```ruby
 pod 'OTPTextView'
