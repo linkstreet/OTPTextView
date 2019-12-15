@@ -19,16 +19,19 @@ Open Wiki tap to see, you can use storyboard or implement it in your code! There
 
 ## Take a glance
 ```
-cursorColor
-underLineIndicator
-isPasswordProtected
 onErrorBorderColor
-borderColor    
 onEnterBoarderColor
 onLeaveBoarderColor
 onFilledBorderColor
 onSuccessBoarderColor
 onAllFilledBoarderColor
+onEnterBorderWidth
+onLeaveBorderWidth
+
+cursorColor
+underLineIndicator
+isPasswordProtected
+borderColor
 placeHolderColor
 indicatorColor
 IndicatorGapeFromTop
@@ -37,8 +40,6 @@ forceCompletion
 callOnCompleted
 AutoArrange
 isBorderHidden
-onEnterBorderWidth
-onLeaveBorderWidth
 borderSize
 BorderRadius
 BlocksNo
