@@ -17,7 +17,38 @@ OTPTextView lets you manage OTP code very conveniently
 ## Implementation
 Open Wiki tap to see, you can use storyboard or implement it in your code
 
-**Simple Implementation**
+## Take a glance
+```
+cursorColor
+underLineIndicator
+isPasswordProtected
+onErrorBorderColor
+borderColor    
+onEnterBoarderColor
+onLeaveBoarderColor
+onFilledBorderColor
+onSuccessBoarderColor
+onAllFilledBoarderColor
+placeHolderColor
+indicatorColor
+IndicatorGapeFromTop
+middleGape
+forceCompletion
+callOnCompleted
+AutoArrange
+isBorderHidden
+onEnterBorderWidth
+onLeaveBorderWidth
+borderSize
+BorderRadius
+BlocksNo
+fontSize
+placeHolder
+getFromClipBoardAndFill
+flash
+flashAll
+```
+## Simple Implementation**
 
 ```ruby
 let myOTPTextView = OTPTextView(frame:CGRect(x: 10, y: 400, width: 300, height: 50)) 
