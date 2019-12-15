@@ -15,7 +15,7 @@ OTPTextView lets you manage OTP code very conveniently
 
 
 ## Implementation
-Open Wiki tap to see, you can use storyboard or implement it in your code
+Open Wiki tap to see, you can use storyboard or implement it in your code! There is also an example project which you can see how to use OTPTextView
 
 ## Take a glance
 ```
