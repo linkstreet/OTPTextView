@@ -48,7 +48,7 @@ getFromClipBoardAndFill
 flash
 flashAll
 ```
-## Simple Implementation**
+## Simple Implementation
 
 ```ruby
 let myOTPTextView = OTPTextView(frame:CGRect(x: 10, y: 400, width: 300, height: 50)) 
